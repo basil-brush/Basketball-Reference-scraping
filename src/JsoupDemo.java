@@ -35,13 +35,18 @@ public class JsoupDemo {
 
 		}
 
+		// Sorts 
 		Element tableRoster = doc.getElementById("roster"); //finds id of roster
 		
 		Elements tableRows = tableRoster.getElementsByTag("tr");
 		
 		for (Element row : tableRows) {
-			System.out.println(tableRows.size());
-			System.out.println(row.text());
+			
+		Elements tds = row.getElementsByTag("td");
+		for (Element td: tds) {
+			System.out.println(td.text());
+		}
+			
 
 		}
 
