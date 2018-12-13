@@ -13,25 +13,37 @@ import org.jsoup.select.Elements;
  *
  */
 public class JsoupDemo {
-	
+
 	/**
-	 * Main.
-	 * 
-	 * Get data from web page
+	 * Main. s Get data from web page
 	 * 
 	 * @param args
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		Document doc = Jsoup.connect("https://www.basketball-reference.com/teams/TOR/2019.html").timeout(3000).get();
+		
+		//connect to the page
+		Document doc = Jsoup.connect("https://www.basketball-reference.com/teams/TOR/2019.html").timeout(6000).get();
+		
+		System.out.println(doc.title());
 		
 		Elements genericInfo = doc.select("div#meta div p"); // all generic info e.g. coach, w-l
-		
+
 		for (Element step : genericInfo) {
 
 			System.out.println(step.text());
 
 		}
-		System.out.println(doc.title());
+
+		Element tableRoster = doc.getElementById("roster"); //finds id of roster
+		
+		Elements tableRows = tableRoster.getElementsByTag("tr");
+		
+		for (Element row : tableRows) {
+			System.out.println(tableRows.size());
+			System.out.println(row.text());
+
+		}
+
 	}
 }
