@@ -27,6 +27,8 @@ public class JsoupDemo {
 		
 		System.out.println(doc.title());
 		
+		//Scrapes the generic content
+		
 		Elements genericInfo = doc.select("div#meta div p"); // all generic info e.g. coach, w-l
 
 		for (Element step : genericInfo) {
@@ -35,7 +37,8 @@ public class JsoupDemo {
 
 		}
 
-		// Sorts 
+		// Sorts the table 
+		
 		Element tableRoster = doc.getElementById("roster"); //finds id of roster
 		
 		Elements tableRows = tableRoster.getElementsByTag("tr");
