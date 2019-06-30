@@ -43,13 +43,61 @@ public class JsoupDemo {
 		
 		Elements tableRows = tableRoster.getElementsByTag("tr");
 		
-		for (Element row : tableRows) {
+		for (Element row : tableRows) { //row of the roster table
+		
+		Elements number = row.getElementsByTag("th"); // gets the number of the player
+		
+		String num = number.text();
+		
 			
 		Elements tds = row.getElementsByTag("td");
+		
+		int currentPos = 0;
+		
+		String name = null;
+		String position = null;
+		String height= null;
+		String weight = null;
+		String birthdate = null;
+		String country = null;
+		String experience = null;
+		String university = null;
+		
 		for (Element td: tds) {
-			System.out.println(td.text());
-		}
 			
+		if(currentPos == 0) {
+			name = td.text();
+			currentPos++;
+		} else if(currentPos == 1) {
+			position = td.text();
+			currentPos++;
+		}else if(currentPos == 2) {
+			height = td.text();
+			currentPos++;
+		}else if(currentPos == 3) {
+			weight = td.text();
+			currentPos++;
+		}else if(currentPos == 4) {
+			birthdate = td.text();
+			currentPos++;
+		}else if(currentPos == 5) {
+			country = td.text();
+			currentPos++;
+		}else if(currentPos == 6) {
+			experience = td.text();
+			currentPos++;
+		}else if(currentPos == 7) {
+			university = td.text();
+			currentPos++;
+		} else {
+			currentPos = 0;
+		}
+		
+		
+		}
+		
+		Player newPlayer = new Player(num,name,position,height,weight,birthdate,country,experience,university);
+			System.out.println(newPlayer.getBirthdate());
 
 		}
 
