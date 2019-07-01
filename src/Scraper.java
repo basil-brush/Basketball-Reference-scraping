@@ -168,13 +168,7 @@ public class Scraper {
 				for(Element college : playerVals.getElementsByAttributeValue("data-stat", "college")) {
 					
 				}
-
-
-		}
-			
-
-			
-		
+		}	
 			
 		}
 				
