@@ -140,33 +140,43 @@ public class Scraper {
 		for(Element player : rows){
 			
 			for(Element playerVals : player.getElementsByTag("tr")) {
+				
+				String playerNumber = null;
+				String playerName = null;
+				String playerPosition = null;
+				String playerHeight= null;
+				String playerWeight = null;
+				String playerBirthdate = null;
+				String playerCountry = null;
+				String playerExperience = null;
+				String playerUniversity = null;
 			
 				for(Element number : playerVals.getElementsByAttributeValue("data-stat","number")) {
-					
+					playerNumber = number.text();
 				}
 				for(Element name : playerVals.getElementsByAttributeValue("data-stat","player")) {
-					
+					playerName = name.text();
 				}
 				for(Element position : playerVals.getElementsByAttributeValue("data-stat", "pos")) {
-					
+					playerPosition = position.text();
 				}
 				for(Element height : playerVals.getElementsByAttributeValue("data-stat", "height")) {
-					
+					playerHeight = height.text();
 				}
 				for(Element weight : playerVals.getElementsByAttributeValue("data-stat", "weight")) {
-					
+					playerWeight = weight.text();
 				}
 				for(Element birthday : playerVals.getElementsByAttributeValue("data-stat", "birth_date")) {
-					
+					playerBirthdate = birthday.text();
 				}
 				for(Element birthCountry : playerVals.getElementsByAttributeValue("data-stat", "birth_country")) {
-					
+					playerCountry = birthCountry.text();
 				}
 				for(Element experience : playerVals.getElementsByAttributeValue("data-stat", "years_experience")) {
-					
+					playerExperience = experience.text();
 				}
 				for(Element college : playerVals.getElementsByAttributeValue("data-stat", "college")) {
-					
+					playerUniversity = college.text();
 				}
 		}	
 			
